@@ -23,11 +23,9 @@
 
 </main>
 
-<footer class="text-muted">
+<footer class="text-muted" style="background-color: #343A40">
     @include('frontend.partials._footer')
 </footer>
-
-
 <script src="{{ mix("js/app.js") }}" ></script>
 </body>
 </html>

@@ -8,9 +8,17 @@
             <div class="col-sm-4 offset-md-1 py-4">
                 <h4 class="text-white">Contact</h4>
                 <ul class="list-unstyled">
-                    <li><a href="{{ route('category','laptop')}}" class="text-white">Laptop</a></li>
-                    <li><a href="#" class="text-white">Like on Facebook</a></li>
-                    <li><a href="#" class="text-white">Email me</a></li>
+                    <li><a href="{{ route('category','laptop')}}" class="text-white text-decoration-none">Laptop</a></li>
+
+                    @auth
+                        <li><a href="{{ route('profile') }}" class="text-white text-decoration-none">Profile ({{ optional(auth()->user())->full_name }})</a></li>
+                        <li><a href="{{ route('logout') }}" class="text-white text-decoration-none">Log out</a></li>
+                    @endauth
+                    @guest
+                        <li><a href="{{ route('login') }}" class="text-white text-decoration-none">Login</a></li>
+                        <li><a href="{{ route('register') }}" class="text-white text-decoration-none">Register</a></li>
+                    @endguest
+
                 </ul>
             </div>
         </div>

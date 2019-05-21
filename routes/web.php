@@ -13,3 +13,13 @@
 
 Route::get('/','HomeController@index')->name('home');
 Route::get('/category/{slug}','HomeController@showProductsByCategory')->name('category');
+
+
+
+Route::get('/login','AuthController@showLoginFrom')->name('login');
+Route::post('/login','AuthController@processLoginFrom');
+Route::get('/profile','AuthController@showProfile')->name('profile');
+Route::get('/logout','AuthController@logout')->name('logout');
+
+Route::get('/register','AuthController@showRegistrationFrom')->name('register');
+Route::post('/register','AuthController@processRegistrationFrom');
