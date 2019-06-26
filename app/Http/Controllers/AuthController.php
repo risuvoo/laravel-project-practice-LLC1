@@ -26,10 +26,12 @@ class AuthController extends Controller
         return redirect()->back();
     }
 
-    public function logout(){
+
+    public function logout(Request $request){
         auth()->logout();
         $this->setSuccessMessage('User has been logout');
-        return redirect()->route('login');
+        return redirect()->route('login')->auth()->logout();
+
     }
 
 
