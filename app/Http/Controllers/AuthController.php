@@ -33,10 +33,6 @@ class AuthController extends Controller
         return redirect()->route('login')->auth()->logout();
 
     }
-
-
-
-
     public function showRegistrationFrom(){
 
         return view('frontend.register');
@@ -68,5 +64,8 @@ class AuthController extends Controller
             $this->setErrorMessage($e->getMessage());
             return redirect()->back();
         }
+    }
+    public function showProfile(){
+        return view('backend.profile');
     }
 }

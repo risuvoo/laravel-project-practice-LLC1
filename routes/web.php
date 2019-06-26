@@ -23,3 +23,9 @@ Route::get('/logout','AuthController@logout')->name('logout');
 
 Route::get('/register','AuthController@showRegistrationFrom')->name('register');
 Route::post('/register','AuthController@processRegistrationFrom');
+
+
+Route::get('/dashboard','dashboardController@showDashboard')->name('dashboard');
+
+
+Route::get('/orders','ordersController@showDashboard')->name('orders');
