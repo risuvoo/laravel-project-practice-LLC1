@@ -13,7 +13,7 @@
 
 
 //homepage
-Route::get('/','HomeController@index')->name('home');
+Route::get('/','HomeController@showHome')->name('home');
 Route::get('/category/{slug}','HomeController@showProductsByCategory')->name('category');
 //authentication
 Route::get('/register','AuthController@showRegistrationFrom')->name('register');

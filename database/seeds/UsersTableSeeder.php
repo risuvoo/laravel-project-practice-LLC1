@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'full_name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
-            'mobile_number' => '01854969657',
+            'phone_number' => '01854969657',
             'address' => 'Dhaka',
             'role' => 'admin',
             'email_verified_at' => now()
