@@ -5,17 +5,14 @@
             <div class="col-md-6 offset-3 " style="margin-bottom: 100px;">
                 <h1 class="h3 mt-5 font-weight-normal text-center">Please Log in </h1>
 
-                @if(session()->has('message'))
-                    <div class="alert alert-{{ session('type') }}">
-                        {{ session('message') }}
-                    </div>
-                @endif
+                @include("backend.partials._message")
+
                 <form action="{{ route('login') }}" method="post" class="form-signin" style="margin-top: 30px;" >
                     @csrf
 
                     {{--email--}}
                     <label for="email"style="margin:0;" class="lead">Email :</label>
-                    <input  name="email" type="email" id="email" class="form-control" placeholder="Enter your email" required autofocus>
+                    <input  name="email" type="email" id="email" class="form-control" placeholder="Enter your email" value=" {{ old('email') }}" required autofocus>
                     @if ($errors->has('email'))
                         <div class="alert-danger">{{ $errors->first('email') }}</div>
                     @endif

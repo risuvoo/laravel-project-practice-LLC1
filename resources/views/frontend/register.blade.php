@@ -5,15 +5,12 @@
             <div class="col-md-6 offset-3">
                 <h1 class="h3 mt-5 font-weight-normal text-center">Please Register </h1>
 
-                @if(session()->has('message'))
-                    <div class="alert alert-{{ session('type') }}">
-                        {{ session('message') }}
-                    </div>
-                @endif
+                @include("backend.partials._message")
+
                 <form action="{{ route('register') }}" method="post" class="form-signin" style="margin-top: 30px;" >
                     @csrf
                     {{--full name--}}
-                    <label for="fullName"style="margin:0;" class="lead">Full Name :</label>
+                    <label for="fullName" style="margin:0;" class="lead">Full Name :</label>
                     <input  name="full_name" type="text" id="fullName" class="form-control" placeholder="Enter your full name" value="{{ old('full_name') }}" required autofocus>
                     @if ($errors->has('full_name'))
                         <div class="alert-danger">{{ $errors->first('full_name') }}</div>
