@@ -98,12 +98,12 @@ class AuthController extends Controller
         $user=optional(auth()->user());
         $this->validate($request, [
             'old_password'=>'required',
-            'password'=>'required|min:6|confirmed',
+            'password'=>'required|min:6',
+            'password_confirmation' => 'required_with:password|same:password|min:6'
         ]);
-        $inputs=$request->except(['_token']);
         $credentials=[
             'email'=>$user->email,
-            'password'=>$inputs->input('old_password')
+            'password'=>$request->input('old_password')
         ];
         if(auth()->attempt($credentials)){
             $user->update([

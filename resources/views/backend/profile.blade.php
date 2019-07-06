@@ -55,18 +55,28 @@
             @csrf
             <div class="form-group">
                 <label for="old_password">Old Password :</label>
-                <input name="old_password" type="text" class="form-control" id="old_password"  required>
+                <input name="old_password" type="password" class="form-control" id="old_password"  required>
             </div>
+            @if ($errors->has('old_password'))
+                <div class="alert-danger">{{ $errors->first('old_password') }}</div>
+            @endif
 
             <div class="form-group">
-                <label for="new_password">New Password :</label>
-                <input name="new_password" type="text" class="form-control" id="new_password"  required>
+                <label for="password">New Password :</label>
+                <input name="password" type="password" class="form-control" id="password"  required>
             </div>
+            @if ($errors->has('password'))
+                <div class="alert-danger">{{ $errors->first('password') }}</div>
+            @endif
 
             <div class="form-group">
-                <label for="confirm_password">Confirm Password :</label>
-                <input name="confirm_password" type="text" class="form-control" id="confirm_password"  required>
+                <label for="password_confirmation">Confirm Password :</label>
+                <input name="password_confirmation" type="password" class="form-control" id="password_confirmation"  required>
             </div>
+            @if ($errors->has('password_confirmation'))
+                <div class="alert-danger">{{ $errors->first('password_confirmation') }}</div>
+            @endif
+
             <button type="submit" class="btn btn-primary btn block">Update Password</button>
         </form>
     </div>
